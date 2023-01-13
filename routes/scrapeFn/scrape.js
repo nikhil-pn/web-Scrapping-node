@@ -24,7 +24,7 @@ async function main(skill) {
       const title = item.querySelector("h2.jobTitle>a")?.innerText;
       const link = item.querySelector("h2.jobTitle>a")?.href;
       console.log("link=", link);
-      console.log("title" ,title);
+      console.log("title", title);
       let salary = item.querySelector(
         "div.metadata.salary-snippet-container > div"
       )?.innerText;
@@ -40,19 +40,19 @@ async function main(skill) {
         compamyName,
         link,
       });
-    }); 
+    });
     return data;
   }, data);
 
   let response = await jobData;
-  let json = JSON.stringify(jobData, null, 2)
-  fs.writeFile("job.json", json, "utf-8", ()=>{
+  let json = JSON.stringify(jobData, null, 2);
+  fs.writeFile("job.json", json, "utf-8", () => {
     console.log("written in job.json");
     console.log("title", data, data.link);
-  })
+  });
   //close browser
   browser.close();
-  return response
+  return response;
 }
 
 module.exports = main;
